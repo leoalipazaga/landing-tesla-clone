@@ -1,0 +1,31 @@
+---
+import Section from '../layouts/Section.astro';
+---
+
+<Section>
+  <div slot="header">
+    <h2 class="text-gray-800 text-[40px] font-semibold">Model X</h2>
+    <a href="" class="text-gray-800 text-sm underline underline-offset-[6px]"
+      >Explore Inventory</a
+    >
+  </div>
+  <div class="pb-[30px]" slot="footer">
+    <div class="flex flex-row justify-center gap-8 pb-8">
+      <a
+        href=""
+        class="px-[90px] py-3 bg-white rounded text-gray-800 text-sm hover:text-white hover:bg-gray-800"
+        >Custom Order</a
+      >
+      <a
+        href=""
+        class="px-[90px] py-3 bg-gray-800 rounded text-white text-sm hover:text-gray-800 hover:bg-white"
+        >Demo Drive</a
+      >
+    </div>
+  </div>
+  <img
+    class="h-full w-full object-cover"
+    slot="media"
+    src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Homepage-Model-X-Desktop-LHD"
+  />
+</Section>

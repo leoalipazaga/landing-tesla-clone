@@ -1,0 +1,23 @@
+---
+import Section from '../layouts/Section.astro';
+---
+
+<Section>
+  <div slot="header">
+    <h2 class="text-gray-800 text-[40px] font-semibold">Accesories</h2>
+  </div>
+  <div class="pb-[30px]" slot="footer">
+    <div class="flex flex-row justify-center gap-8 pb-8">
+      <a
+        href=""
+        class="px-[90px] py-3 bg-gray-800 rounded text-white text-sm hover:text-gray-800 hover:bg-white"
+        >Shop Now</a
+      >
+    </div>
+  </div>
+  <img
+    class="h-full w-full object-cover"
+    slot="media"
+    src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto:best/Desktop_Accessories"
+  />
+</Section>

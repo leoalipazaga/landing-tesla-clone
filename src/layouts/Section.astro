@@ -1,0 +1,13 @@
+<section class="h-screen relative text-center">
+  <div class="h-screen flex flex-col justify-between relative z-20">
+    <header class="pt-36">
+      <slot name="header" />
+    </header>
+    <footer class="relative z-20">
+      <slot name="footer" />
+    </footer>
+  </div>
+  <div class="h-full w-full absolute top-0 left-0 z-10">
+    <slot name="media" />
+  </div>
+</section>

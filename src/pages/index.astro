@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../sections/Hero.astro';
+import Charge from '../sections/Charge.astro';
+import ModelY from '../sections/ModelY.astro';
+import ModelX from '../sections/ModelX.astro';
+import SolarPanel from '../sections/SolarPanel.astro';
+import SolarRoof from '../sections/SolarRoof.astro';
+import Powerwall from '../sections/Powerwall.astro';
+import Accesories from '../sections/Accesories.astro';
+---
+
+<Layout title="Midudev: Tesla Landing">
+  <main>
+    <div
+      class="overflow-y-scroll overflow-x-hidden h-screen w-screen snap-y snap-mandatory"
+    >
+      <div class="snap-start">
+        <Hero />
+      </div>
+      <div class="snap-start">
+        <Charge />
+      </div>
+      <div class="snap-start">
+        <ModelY />
+      </div>
+      <div class="snap-start">
+        <ModelX />
+      </div>
+      <div class="snap-start">
+        <SolarPanel />
+      </div>
+      <div class="snap-start">
+        <SolarRoof />
+      </div>
+      <div class="snap-start">
+        <Powerwall />
+      </div>
+      <div class="snap-start">
+        <Accesories />
+      </div>
+    </div>
+  </main>
+</Layout>

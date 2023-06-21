@@ -1,0 +1,79 @@
+---
+import Tesla from './Tesla.astro';
+---
+
+<header
+  id="landing-header"
+  class="flex flex-row justify-between items-center fixed w-full py-4 px-6 top-0 z-40"
+>
+  <div class="flex-grow basis-0 text-white">
+    <Tesla />
+  </div>
+  <nav id="main-nav">
+    <ul class="flex flex-row">
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="">Model S</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Model 3</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Model X</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Model Y</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Solar Roof</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Solar Panels</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Powerwall</a>
+      </li>
+    </ul>
+  </nav>
+  <nav id="others-nav" class="flex-grow basis-0">
+    <ul class="flex flex-row justify-end">
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Shop</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Account</a>
+      </li>
+      <li class="py-2 px-4 text-white text-sm font-bold">
+        <a href="http://">Menu</a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    id="menu-backdrop"
+    class=`
+    absolute left-0 -z-10 translate-x-[var(--left)] w-[var(--width)] h-[var(--height)]
+    bg-black/5 backdrop-blur-lg rounded transition-all duration-500 ease-in-out`
+  >
+  </div>
+  <script>
+    const listItems = document.querySelectorAll('#landing-header li');
+    const mainNav = document.querySelector('#main-nav');
+    const othersNav = document.querySelector('#others-nav');
+    const menuBackdrop = document.querySelector('#menu-backdrop');
+    listItems.forEach((item) => {
+      item.addEventListener('mouseenter', ({ target }) => {
+        const { left, top, width, height } = item.getBoundingClientRect();
+        menuBackdrop.style.setProperty('visibility', 'visible');
+        menuBackdrop.style.setProperty('--left', `${left}px`);
+        menuBackdrop.style.setProperty('--width', `${width}px`);
+        menuBackdrop.style.setProperty('--height', `${height}px`);
+        console.log(left, top, width, height);
+      });
+    });
+    mainNav.addEventListener('mouseleave', () => {
+      menuBackdrop.style.setProperty('visibility', 'hidden');
+    });
+    othersNav.addEventListener('mouseleave', () => {
+      menuBackdrop.style.setProperty('visibility', 'hidden');
+    });
+  </script>
+</header>

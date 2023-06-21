@@ -1,0 +1,25 @@
+---
+import Section from '../layouts/Section.astro';
+---
+
+<Section title="Experience Tesla" subtitle="Schedule a Demo Drive Today">
+  <div slot="header">
+    <h2 class="text-white text-[40px] font-semibold">Experience Tesla</h2>
+    <p class="text-white text-sm">Schedule a Demo Drive Today</p>
+  </div>
+  <div slot="footer" class="pb-[90px]">
+    <a
+      href=""
+      class="px-[90px] py-3 border-[3px] border-white rounded text-white text-sm hover:text-black hover:bg-white transition-all ease-in-out"
+      >Demo Drive</a
+    >
+  </div>
+  <video
+    muted
+    autoplay
+    loop
+    class="object-center object-cover h-full w-full"
+    slot="media"
+    src="https://digitalassets.tesla.com/tesla-contents/video/upload/f_auto,q_auto/Homepage-Test_Drive-NA-Desktop.mp4"
+  ></video>
+</Section>
