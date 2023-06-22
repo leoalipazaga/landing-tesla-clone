@@ -9,7 +9,7 @@ import Tesla from './Tesla.astro';
   <div class="flex-grow basis-0 text-white">
     <Tesla />
   </div>
-  <nav id="main-nav">
+  <nav class="hidden lg:block" id="main-nav">
     <ul class="flex flex-row">
       <li class="py-2 px-4 text-white text-sm font-bold">
         <a href="">Model S</a>
@@ -36,17 +36,57 @@ import Tesla from './Tesla.astro';
   </nav>
   <nav id="others-nav" class="flex-grow basis-0">
     <ul class="flex flex-row justify-end">
-      <li class="py-2 px-4 text-white text-sm font-bold">
+      <li class="py-2 px-4 text-white text-sm font-bold hidden lg:block">
         <a href="http://">Shop</a>
       </li>
-      <li class="py-2 px-4 text-white text-sm font-bold">
+      <li class="py-2 px-4 text-white text-sm font-bold hidden lg:block">
         <a href="http://">Account</a>
       </li>
       <li class="py-2 px-4 text-white text-sm font-bold">
-        <a href="http://">Menu</a>
+        <button type="button" id="menu-button">Menu</button>
       </li>
     </ul>
   </nav>
+  <!-- 
+
+    MOBILE NAVBAR
+   -->
+  <nav
+    class="hidden lg:hidden absolute z-20 top-0 right-0 bg-white w-[280px] p-6 h-screen overflow-y-scroll"
+    id="mobile-nav"
+  >
+    <div class="text-right">
+      <button id="close-button" class="py-2 px-4 text-black text-lg">X</button>
+    </div>
+    <ul class="flex flex-col">
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="">Model S</a>
+      </li>
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="http://">Model 3</a>
+      </li>
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="http://">Model X</a>
+      </li>
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="http://">Model Y</a>
+      </li>
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="http://">Solar Roof</a>
+      </li>
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="http://">Solar Panels</a>
+      </li>
+      <li class="py-2 px-4 text-black text-sm font-bold">
+        <a href="http://">Powerwall</a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    class="hidden lg:hidden absolute z-10 w-screen h-screen top-0 left-0 opacity-50 bg-black/5 backdrop-blur-sm"
+    id="backdrop"
+  >
+  </div>
   <div
     id="menu-backdrop"
     class=`
@@ -59,6 +99,11 @@ import Tesla from './Tesla.astro';
     const mainNav = document.querySelector('#main-nav');
     const othersNav = document.querySelector('#others-nav');
     const menuBackdrop = document.querySelector('#menu-backdrop');
+    const menuButton = document.querySelector('#menu-button');
+    const mobileNav = document.querySelector('#mobile-nav');
+    const backdrop = document.querySelector('#backdrop');
+    const closeButton = document.querySelector('#close-button');
+
     listItems.forEach((item) => {
       item.addEventListener('mouseenter', ({ target }) => {
         const { left, top, width, height } = item.getBoundingClientRect();
@@ -66,7 +111,6 @@ import Tesla from './Tesla.astro';
         menuBackdrop.style.setProperty('--left', `${left}px`);
         menuBackdrop.style.setProperty('--width', `${width}px`);
         menuBackdrop.style.setProperty('--height', `${height}px`);
-        console.log(left, top, width, height);
       });
     });
     mainNav.addEventListener('mouseleave', () => {
@@ -74,6 +118,27 @@ import Tesla from './Tesla.astro';
     });
     othersNav.addEventListener('mouseleave', () => {
       menuBackdrop.style.setProperty('visibility', 'hidden');
+    });
+    menuButton.addEventListener('click', () => {
+      const isHidden = mobileNav.classList.contains('hidden');
+      const isBackdropHidden = backdrop.classList.contains('hidden');
+
+      isBackdropHidden
+        ? backdrop.classList.remove('hidden')
+        : backdrop.classList.add('hidden');
+      isHidden
+        ? mobileNav.classList.remove('hidden')
+        : mobileNav.classList.add('hidden');
+    });
+
+    backdrop.addEventListener('click', () => {
+      backdrop.classList.add('hidden');
+      mobileNav.classList.add('hidden');
+    });
+
+    closeButton.addEventListener('click', () => {
+      backdrop.classList.add('hidden');
+      mobileNav.classList.add('hidden');
     });
   </script>
 </header>
