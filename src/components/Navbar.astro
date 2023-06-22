@@ -47,12 +47,8 @@ import Tesla from './Tesla.astro';
       </li>
     </ul>
   </nav>
-  <!-- 
-
-    MOBILE NAVBAR
-   -->
   <nav
-    class="hidden lg:hidden absolute z-20 top-0 right-0 bg-white w-[280px] p-6 h-screen overflow-y-scroll"
+    class="lg:hidden absolute z-20 top-0 right-0 bg-white w-[280px] pt-6 pr-6 pl-10 h-screen overflow-y-scroll duration-500 ease-out translate-x-[280px]"
     id="mobile-nav"
   >
     <div class="text-right">
@@ -120,25 +116,21 @@ import Tesla from './Tesla.astro';
       menuBackdrop.style.setProperty('visibility', 'hidden');
     });
     menuButton.addEventListener('click', () => {
-      const isHidden = mobileNav.classList.contains('hidden');
-      const isBackdropHidden = backdrop.classList.contains('hidden');
-
-      isBackdropHidden
-        ? backdrop.classList.remove('hidden')
-        : backdrop.classList.add('hidden');
-      isHidden
-        ? mobileNav.classList.remove('hidden')
-        : mobileNav.classList.add('hidden');
+      backdrop.classList.remove('hidden');
+      mobileNav.classList.remove('animate-slide-out');
+      mobileNav.classList.add('animate-slide-in');
     });
 
     backdrop.addEventListener('click', () => {
       backdrop.classList.add('hidden');
-      mobileNav.classList.add('hidden');
+      mobileNav.classList.remove('animate-slide-in');
+      mobileNav.classList.add('animate-slide-out');
     });
 
     closeButton.addEventListener('click', () => {
       backdrop.classList.add('hidden');
-      mobileNav.classList.add('hidden');
+      mobileNav.classList.remove('animate-slide-in');
+      mobileNav.classList.add('animate-slide-out');
     });
   </script>
 </header>
