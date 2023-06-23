@@ -11,20 +11,26 @@ import Section from '../layouts/Section.astro';
       class="flex flex-col md:flex-row items-center justify-center gap-8 pb-8"
     >
       <a
-        href=""
+        href="#"
         class="w-[280px] py-3 bg-white rounded text-gray-800 text-sm hover:bg-neutral-100"
         >Order Now</a
       >
       <a
-        href=""
+        href="#"
         class="w-[280px] py-3 bg-gray-800 rounded text-white text-sm hover:bg-gray-900"
         >Learn More</a
       >
     </div>
   </div>
-  <img
-    class="h-full w-full object-cover"
-    slot="media"
-    src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Powerwall-Desktop.jpg"
-  />
+  <picture slot="media">
+    <source
+      media="(min-width: 640px)"
+      srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Powerwall-Desktop.jpg"
+    />
+    <img
+      alt="Powerwall"
+      class="h-full w-full object-cover"
+      src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Powerwall-Mobile.jpg"
+    />
+  </picture>
 </Section>

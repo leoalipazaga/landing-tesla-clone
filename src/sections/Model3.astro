@@ -2,7 +2,7 @@
 import Section from '../layouts/Section.astro';
 ---
 
-<Section title="Starting at $32,740" subtitle="After Federal Tax Credit">
+<Section>
   <div slot="header">
     <h2 class="text-gray-800 text-[40px] font-semibold">Model 3</h2>
     <p class="text-gray-800 text-sm">Starting at $32,740</p>
@@ -28,9 +28,15 @@ import Section from '../layouts/Section.astro';
       vehicle by June 30.
     </p>
   </div>
-  <img
-    class="h-full w-full object-cover"
-    slot="media"
-    src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_2560,w_4096,c_fit,f_auto,q_auto:best/Homepage-Model-3-Desktop-LHD"
-  />
+  <picture slot="media">
+    <source
+      media="(min-width: 640px)"
+      srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_2560,w_4096,c_fit,f_auto,q_auto:best/Homepage-Model-3-Desktop-LHD"
+    />
+    <img
+      alt="Model-3"
+      class="h-full w-full object-cover"
+      src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_4096,w_1927,c_fit,f_auto,q_auto:best/Homepage-Model-3-LHD-Mobile"
+    />
+  </picture>
 </Section>

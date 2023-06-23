@@ -14,20 +14,26 @@ import Section from '../layouts/Section.astro';
       class="flex flex-col md:flex-row items-center justify-center gap-8 pb-8"
     >
       <a
-        href=""
+        href="#"
         class="w-full md:w-[280px] py-3 bg-white rounded text-gray-800 text-sm hover:bg-neutral-100"
         >Order Now</a
       >
       <a
-        href=""
+        href="#"
         class="w-full md:w-[280px] py-3 bg-gray-800 rounded text-white text-sm hover:bg-gray-900"
         >Learn More</a
       >
     </div>
   </div>
-  <img
-    class="h-full w-full object-cover"
-    slot="media"
-    src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Homepage-SolarRoof-Desktop-Global"
-  />
+  <picture slot="media">
+    <source
+      media="(min-width: 640px)"
+      srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Homepage-SolarRoof-Desktop-Global"
+    />
+    <img
+      alt="Solar-Roof"
+      class="h-full w-full object-cover"
+      src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_2100,w_800,c_fit,f_auto,q_auto:best/Homepage-SolarRoof-Mobile"
+    />
+  </picture>
 </Section>

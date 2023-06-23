@@ -5,7 +5,7 @@ import Section from '../layouts/Section.astro';
 <Section>
   <div slot="header">
     <h2 class="text-gray-800 text-[40px] font-semibold">Model X</h2>
-    <a href="" class="text-gray-800 text-sm underline underline-offset-[6px]"
+    <a href="#" class="text-gray-800 text-sm underline underline-offset-[6px]"
       >Explore Inventory</a
     >
   </div>
@@ -14,20 +14,26 @@ import Section from '../layouts/Section.astro';
       class="flex flex-col md:flex-row items-center justify-center gap-8 pb-8"
     >
       <a
-        href=""
+        href="#"
         class="w-full md:w-[280px] py-3 bg-white rounded text-gray-800 text-sm hover:bg-neutral-100"
         >Custom Order</a
       >
       <a
-        href=""
+        href="#"
         class="w-full md:w-[280px] py-3 bg-gray-800 rounded text-white text-sm hover:bg-gray-900"
         >Demo Drive</a
       >
     </div>
   </div>
-  <img
-    class="h-full w-full object-cover"
-    slot="media"
-    src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Homepage-Model-X-Desktop-LHD"
-  />
+  <picture slot="media">
+    <source
+      media="(min-width: 640px)"
+      srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1800,w_2880,c_fit,f_auto,q_auto:best/Homepage-Model-X-Desktop-LHD"
+    />
+    <img
+      alt="Model-X"
+      class="h-full w-full object-cover"
+      src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1700,w_800,c_fit,f_auto,q_auto:best/Homepage-Model-X-Mobile-LHD_001"
+    />
+  </picture>
 </Section>

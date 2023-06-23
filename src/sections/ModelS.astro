@@ -5,25 +5,31 @@ import Section from '../layouts/Section.astro';
 <Section>
   <div slot="header">
     <h2 class="text-gray-800 text-[40px] font-semibold">Model S</h2>
-    <a href="" class="text-gray-800 text-sm underline">Explore Inventory</a>
+    <a href="#" class="text-gray-800 text-sm underline">Explore Inventory</a>
   </div>
   <div class="pb-[30px] px-6" slot="footer">
     <div class="flex flex-col md:flex-row justify-center gap-8 pb-8">
       <a
-        href=""
+        href="#"
         class="w-full md:w-[280px] py-3 bg-white rounded text-gray-800 text-sm hover:text-white hover:bg-gray-800"
         >Custom Order</a
       >
       <a
-        href=""
+        href="#"
         class="w-full md:w-[280px] py-3 bg-gray-800 rounded text-white text-sm hover:text-gray-800 hover:bg-white"
         >Demo Drive</a
       >
     </div>
   </div>
-  <img
-    class="h-full w-full object-cover"
-    slot="media"
-    src="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto:best/Model-S-homepage-desktop"
-  />
+  <picture slot="media">
+    <source
+      media="(min-width: 640px)"
+      srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto:best/Model-S-homepage-desktop"
+    />
+    <img
+      alt="Model-S"
+      class="h-full w-full object-cover"
+      src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1624,w_750,c_fit,f_auto,q_auto:best/Model-S-homepage-mobile"
+    />
+  </picture>
 </Section>
