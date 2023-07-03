@@ -1,6 +1,6 @@
 ## 🚀 Get Started
 
-You can visit this project at https://astro-tesla-clone.netlify.app/\
+You can visit this project at https://astro-tesla-clone.netlify.app/
 If you wish to run the project, you should install dependencies with this command
 
 ```
